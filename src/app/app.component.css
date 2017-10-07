@@ -1,0 +1,17 @@
+body {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+div.top-half {
+	height: 50vh;
+}
+
+div.skills {
+	height: 10vh;
+}
+
+div.bottom-half {
+	height: 40vh;
+}
