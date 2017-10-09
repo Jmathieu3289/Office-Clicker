@@ -1,8 +1,14 @@
 <div class="row">
 	<div class="col">
 		<label>Head</label>
-		<div class="slot" dnd-draggable dnd-droppable [dragEnabled]="head!=null" [dragData]="head" (onDropSuccess)="transferDataSuccess($event)">
-	 	  <span *ngIf="head">{{head.name}}</span>
+		<div class="slot" [dragula]='"first-bag"' [dragulaModel]='head'>
+	 	  <div class="slot" *ngIf="head.length>0" [attr.inventory-id]="head[0].uuid">{{head[0].name}}</div>
+		</div>
+	</div>
+	<div class="col">
+		<label>Body</label>
+		<div class="slot">
+	 	  <span *ngIf="body">{{body.name}}</span>
 		</div>
 	</div>
 </div>

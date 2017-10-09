@@ -3,7 +3,7 @@
   <div class="row top-half no-gutters">
     <!--Graphs or Character Sheet-->
     <div class="col bg-primary">
-      <app-character-sheet></app-character-sheet>
+      <app-character-sheet [inventory]="inventory"></app-character-sheet>
     </div>
     <!--Live View-->
     <div class="col bg-warning">
@@ -19,7 +19,7 @@
   <div class="row bottom-half no-gutters">
     <!--Inventory-->
     <div class="col-sm-10">
-      <app-inventory></app-inventory>
+      <app-inventory [inventory]="inventory"></app-inventory>
     </div>
     <!--Menu-->
     <div class="col-sm-2 bg-info">

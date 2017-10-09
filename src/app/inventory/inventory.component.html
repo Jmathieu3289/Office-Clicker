@@ -1,3 +1,5 @@
-<div class="d-flex flex-row" dnd-sortable-container dnd-droppable [sortableData]="inventory" (onDropSuccess)="addTo($event)">
-  <div *ngFor="let inv of inventory; let i = index" class="p-1 inventory-item" dnd-sortable [sortableIndex]="i" [dragData]="[inventory, inv]">{{inv.name}}</div>
+<div class="d-inline-flex flex-wrap" [dragula]='"first-bag"' [dragulaModel]='inventory'>
+  <div *ngFor="let inv of inventory" class="p-1 inventory-item" [attr.inventory-id]="inv.uuid">
+  	<span *ngIf="inv !== undefined">{{inv.name}}</span>
+  </div>
 </div>

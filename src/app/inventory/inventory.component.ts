@@ -1,29 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { InventoryItem } from './inventory-item';
+import { DragulaService } from 'ng2-dragula';
 
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
-  styleUrls: ['./inventory.component.css']
+  styleUrls: ['./inventory.component.css'],
+  providers: []
 })
 export class InventoryComponent implements OnInit {
 
-  inventory: Array<InventoryItem> = [];
+  size: number = 144;
+  @Input() inventory: Array<InventoryItem>;
 
-  constructor() {
-    this.inventory = [new InventoryItem('Head Item'), new InventoryItem('Body Item'), new InventoryItem('Weapon')];
+  constructor(private dragulaService: DragulaService) {
+
+    dragulaService.dropModel.subscribe((value, source) => console.log(value[1].getAttribute('inventory-id')));
+
+    dragulaService.setOptions('first-bag', {
+      removeOnSpill: false,
+      revertOnSpill: true
+    });
+
+
   }
 
   ngOnInit() {
-  }
-
-  addTo($event: any) {
-    if ($event) {
-      console.log($event);
-      this.inventory.push($event.dragData[1]);
-      $event.dragData[1] = null;
-    }
   }
 
 }
