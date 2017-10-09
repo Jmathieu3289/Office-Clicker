@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { InventoryItem } from './inventory-item';
+
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -7,21 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventoryComponent implements OnInit {
 
-	x_cubes: number[] = null;
-	y_cubes: number[] = null;
-	x_size: number = 30;
-	y_size: number = 10;
+  inventory: Array<InventoryItem> = [];
 
-	constructor() { 
-		this.BuildInventory();
-	}
+  constructor() {
+    this.inventory = [new InventoryItem('Head Item'), new InventoryItem('Body Item'), new InventoryItem('Weapon')];
+  }
 
-	ngOnInit() {
-	}
+  ngOnInit() {
+  }
 
-	BuildInventory(){
-		this.x_cubes = Array(this.x_size).fill(0);
-		this.y_cubes = Array(this.y_size).fill(0);
-	}
+  addTo($event: any) {
+    if ($event) {
+      console.log($event);
+      this.inventory.push($event.dragData[1]);
+      $event.dragData[1] = null;
+    }
+  }
 
 }

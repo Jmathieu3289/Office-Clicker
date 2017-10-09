@@ -1,8 +1,3 @@
-<table class="inventory-table table-bordered table-inverse">
-	<tbody>
-		<tr *ngFor="let i of y_cubes">
-			<td *ngFor="let j of x_cubes">
-			</td>
-		</tr>
-	</tbody>
-</table>
+<div class="d-flex flex-row" dnd-sortable-container dnd-droppable [sortableData]="inventory" (onDropSuccess)="addTo($event)">
+  <div *ngFor="let inv of inventory; let i = index" class="p-1 inventory-item" dnd-sortable [sortableIndex]="i" [dragData]="[inventory, inv]">{{inv.name}}</div>
+</div>

@@ -1,7 +1,7 @@
-div.inventory-item{
+div.slot{
 	height: 3vw;
 	width: 3vw;
 	border: 2px solid black;
-	border-radius: 3px;
+	border-radius: 2px;
 	margin: 3px;
 }
