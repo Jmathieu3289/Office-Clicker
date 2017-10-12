@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { DragulaModule, DragulaService } from 'ng2-dragula';
+import { Ng2DragDropModule } from 'ng2-drag-drop';
 
 import { AppComponent } from './app.component';
 import { InventoryComponent } from './inventory/inventory.component';
@@ -14,10 +14,10 @@ import { CharacterSheetComponent } from './character-sheet/character-sheet.compo
   ],
   imports: [
     BrowserModule,
-    DragulaModule
+    Ng2DragDropModule.forRoot()
   ],
   exports: [],
-  providers: [DragulaService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

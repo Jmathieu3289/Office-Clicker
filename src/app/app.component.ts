@@ -11,13 +11,14 @@ export class AppComponent {
   title = 'app';
 
   inventory: Array<InventoryItem> = Array();
+  slots: Array<InventoryItem> = Array();
 
   constructor(){
  
     for(var i=0; i<3; i++){
-      this.inventory[i*3+0] = new InventoryItem('Head Item');
-      this.inventory[i*3+1] = new InventoryItem('Body Item');
-      this.inventory[i*3+2] = new InventoryItem('Weapon');
+      this.inventory[i*3+0] = new InventoryItem('Head Item','head');
+      this.inventory[i*3+1] = new InventoryItem('Body Item','body');
+      this.inventory[i*3+2] = new InventoryItem('Weapon','weapon');
     }
 
   }

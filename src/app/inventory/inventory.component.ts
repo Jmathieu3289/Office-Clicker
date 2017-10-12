@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { InventoryItem } from './inventory-item';
-import { DragulaService } from 'ng2-dragula';
 
 @Component({
   selector: 'app-inventory',
@@ -13,20 +12,20 @@ export class InventoryComponent implements OnInit {
 
   size: number = 144;
   @Input() inventory: Array<InventoryItem>;
+  @Input() slots: Array<InventoryItem>;
 
-  constructor(private dragulaService: DragulaService) {
-
-    dragulaService.dropModel.subscribe((value, source) => console.log(value[1].getAttribute('inventory-id')));
-
-    dragulaService.setOptions('first-bag', {
-      removeOnSpill: false,
-      revertOnSpill: true
-    });
-
-
+  constructor() {
   }
 
   ngOnInit() {
+  }
+
+  onItemDrop(e: any) {
+    if(e.dragData.src != null){
+    	this.slots[e.dragData.src] = null;
+    	e.dragData.src = null;
+    	this.inventory.push(e.dragData);
+    }
   }
 
 }

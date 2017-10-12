@@ -5,3 +5,8 @@ div.slot{
 	border-radius: 2px;
 	margin: 3px;
 }
+img{
+	height: 3vw;
+	width: 3vw;
+	margin: 0px;
+}

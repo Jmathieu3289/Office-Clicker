@@ -1,13 +1,21 @@
 export class InventoryItem {
 
-  name: string = 'Test';
+  name: string;
+  type: string;
+  img_id: string;
   uuid: any;
-  picked_up: boolean = false;
-  last_inventory_index: number;
 
-  constructor(name: string) {
+  constructor(name: string, type: string) {
     this.name = name;
+    this.type = type;
     this.uuid = this.uuidv4();
+    if(this.type=='head'){
+     this.img_id = '/assets/Helmet/CommandButtons/BTNINV_Helmet_0'+Math.ceil(Math.random()*9)+'.jpg';
+    }else if(this.type=='body'){
+     this.img_id = '/assets/Chest/CommandButtons/BTNINV_Chest_Chain_0'+Math.ceil(Math.random()*9)+'.jpg';
+    }else{
+     this.img_id = '/assets/Weapon/CommandButtons/BTNINV_Sword_0'+Math.ceil(Math.random()*9)+'.jpg'; 
+    }
   }
 
   uuidv4() {

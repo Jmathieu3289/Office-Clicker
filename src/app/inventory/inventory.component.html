@@ -1,5 +1,3 @@
-<div class="d-inline-flex flex-wrap" [dragula]='"first-bag"' [dragulaModel]='inventory'>
-  <div *ngFor="let inv of inventory" class="p-1 inventory-item" [attr.inventory-id]="inv.uuid">
-  	<span *ngIf="inv !== undefined">{{inv.name}}</span>
-  </div>
+<div class="d-inline-flex flex-wrap" droppable (onDrop)="onItemDrop($event)">
+  <img *ngFor="let inv of inventory" class="p-1 inventory-item" draggable [dragData]="inv" [dragScope]="inv.type" src="{{inv.img_id}}"/>
 </div>

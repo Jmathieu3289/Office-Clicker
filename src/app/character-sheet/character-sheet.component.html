@@ -1,14 +1,19 @@
 <div class="row">
 	<div class="col">
 		<label>Head</label>
-		<div class="slot" [dragula]='"first-bag"' [dragulaModel]='head'>
-	 	  <div class="slot" *ngIf="head.length>0" [attr.inventory-id]="head[0].uuid">{{head[0].name}}</div>
+		<div class="slot" droppable [dropScope]="'head'" (onDrop)="onItemDrop('head',$event)">
+	 	  <img *ngIf="slots['head']" draggable [dragData]="slots['head']" src="{{slots['head'].img_id}}" />
 		</div>
 	</div>
 	<div class="col">
 		<label>Body</label>
-		<div class="slot">
-	 	  <span *ngIf="body">{{body.name}}</span>
+		<div class="slot" droppable [dropScope]="'body'" (onDrop)="onItemDrop('body',$event)">
+	 	  <img *ngIf="slots['body']" draggable [dragData]="slots['body']" src="{{slots['body'].img_id}}" />
 		</div>
 	</div>
+</div>
+<div class="row">
+	<div class="col">
+	Head: <span *ngIf="slots['head']">{{slots['head'].name}}</span>
+    </div>
 </div>
