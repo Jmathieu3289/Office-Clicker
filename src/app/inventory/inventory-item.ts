@@ -1,12 +1,15 @@
 export class InventoryItem {
 
+  static PREFIXES = ['Speedy', 'Sharp', 'Whacky'];
+  static SUFFIXES = ['Of Might', 'Of Speed', 'Of Charm'];
+
   name: string;
   type: string;
   img_id: string;
   uuid: any;
 
   constructor(name: string, type: string) {
-    this.name = name;
+    this.name = InventoryItem.PREFIXES[Math.floor(Math.random()*InventoryItem.PREFIXES.length)] + " " + name + " " + InventoryItem.SUFFIXES[Math.floor(Math.random()*InventoryItem.SUFFIXES.length)];
     this.type = type;
     this.uuid = this.uuidv4();
     if(this.type=='head'){
