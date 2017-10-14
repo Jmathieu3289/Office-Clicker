@@ -1,0 +1,54 @@
+div.taskbar {
+	height: 2.5em;
+	background-color: #bfbfbf;
+	border-top: 2px solid #dbdbdb;
+	padding: 2px 2px;
+	z-index: 1;
+}
+
+div.start-menu {
+	margin-bottom: 2.2em;
+	margin-left: 2px;
+	max-width: 200px;
+	z-index: 2;
+}
+
+div.start-menu-button {
+	cursor: pointer;
+}
+
+div.row {
+	margin: 0px;
+}
+
+div.col-2, div.col-10{
+	padding: 0px;
+}
+
+div.start-menu-bar {
+	background-color: #808080;
+	color: #bfbfbf;
+}
+
+div.start-menu-item {
+	padding: 5px;
+	padding-left: 15px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+div.start-menu-item:hover {
+	color: white;
+	background-color: #000080;
+}
+
+i.start-menu-item {
+	margin-right: 5px;
+}
+
+div.start-menu-hr {
+	height: 2px;
+	border: 1px solid;
+	border-bottom-color: #dbdbdb;
+	border-top-color: #535353;
+}

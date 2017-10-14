@@ -1,21 +1,3 @@
-body {
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
-}
-
-div.top-half {
-	height: 50vh;
-}
-
-div.skills {
-	height: 10vh;
-}
-
-div.bottom-half {
-	height: 40vh;
-}
-
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -29,4 +11,7 @@ div.bottom-half {
 .container-fluid {
 	padding-right: 0;
 	padding-left: 0;
+	margin-top: 0px;
+	padding-bottom: 2.5em;
+	height: 100%;
 }

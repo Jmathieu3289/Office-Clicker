@@ -5,12 +5,16 @@ import { Ng2DragDropModule } from 'ng2-drag-drop';
 import { AppComponent } from './app.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
+import { TaskbarComponent } from './taskbar/taskbar.component';
+import { DesktopComponent } from './desktop/desktop.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InventoryComponent,
-    CharacterSheetComponent
+    CharacterSheetComponent,
+    TaskbarComponent,
+    DesktopComponent
   ],
   imports: [
     BrowserModule,

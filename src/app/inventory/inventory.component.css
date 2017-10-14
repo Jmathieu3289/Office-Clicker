@@ -5,3 +5,7 @@ div.inventory-item{
 	border-radius: 3px;
 	margin: 3px;
 }
+
+div.inventory-area {
+	min-height: 200px;
+}

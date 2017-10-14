@@ -1,29 +1,6 @@
 <div class="container-fluid">
-  <!--Game Components-->
-  <div class="row top-half no-gutters">
-    <!--Graphs or Character Sheet-->
-    <div class="col bg-primary">
-      <app-character-sheet [inventory]="inventory" [slots]="slots"></app-character-sheet>
-    </div>
-    <!--Live View-->
-    <div class="col bg-warning">
-      Live View
-    </div>
-  </div>
-  <div class="row skills no-gutters">
-    <!--Skills-->
-    <div class="col bg-success">
-      Skills
-    </div>
-  </div>
-  <div class="row bottom-half no-gutters">
-    <!--Inventory-->
-    <div class="col-sm-10">
-      <app-inventory [inventory]="inventory" [slots]="slots"></app-inventory>
-    </div>
-    <!--Menu-->
-    <div class="col-sm-2 bg-info">
-      Menu
-    </div>
-  </div>
+  <!--<app-character-sheet [inventory]="inventory" [slots]="slots"></app-character-sheet>-->
+  <app-inventory [inventory]="inventory" [slots]="slots"></app-inventory>
+  <app-desktop #desktop></app-desktop>
+  <app-taskbar #taskbar></app-taskbar>
 </div>
