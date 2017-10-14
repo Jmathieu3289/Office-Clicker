@@ -1,2 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'
+html, body {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	background-color: #008080;
+	font-size: 13px;
+	color: black;
+}
+
+div.icon {
+	height: 1vh;
+	width: 1vh;
+	margin: 0.25vh;
+}
+
+div.container-outer {
+	border: 2px solid;
+	border-bottom-color: #535353;
+	border-right-color: #535353;
+	border-left-color: #dbdbdb;
+	border-top-color: #dbdbdb;
+	background-color: #bfbfbf;
+	padding: 2px;
+}
+
+div.container-outer.active {
+	border-bottom-color: #c7c7c7;
+    border-right-color: #c7c7c7;
+    border-left-color: #808080;
+    border-top-color: #808080;
+}
+
+div.container-inner {
+	border: 2px solid;
+    border-bottom-color: #c7c7c7;
+    border-right-color: #c7c7c7;
+    border-left-color: #808080;
+    border-top-color: #808080;
+    background-color: #fff;
+    padding: 10px;
+}
+
+/* -- Item Rarities -- */
+
+.common {
+	color: 	#808080;
+}
+
+.uncommon {
+	color: #008000;
+}
+
+.rare {
+	color: #000080;
+}
+
+.epic {
+	color: #800080;
+}
+
+.legendary {
+	color: 	#808000;
+}
+
+.artifact {
+	color: #800000;
+}
+
+
+
+@import '~ng2-drag-drop/style.css';
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';

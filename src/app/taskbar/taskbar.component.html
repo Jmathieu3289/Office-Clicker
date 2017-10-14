@@ -1,0 +1,29 @@
+<!--Start Menu-->
+<div class="fixed-bottom container-outer start-menu container" [hidden]="!startMenuActive">
+	<div class="row">
+		<div class="col-2 start-menu-bar">
+		</div>
+		<div class="col-10">
+			<div class="start-menu-item">
+				<i class="fa fa-user start-menu-item"></i> Character Sheet
+			</div>
+			<div class="start-menu-item">
+				<i class="fa fa-folder start-menu-item"></i> Inventory
+			</div>
+			<div class="start-menu-item">
+				<i class="fa fa-cog start-menu-item"></i> Settings
+			</div>
+			<div class="start-menu-hr"></div>
+			<div class="start-menu-item">
+				<i class="fa fa-power-off start-menu-item"></i> Shut Down...
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Taskbar-->
+<div class="fixed-bottom taskbar d-flex">
+	<div class="start-menu-button container-outer" [ngClass]="{'active':startMenuActive}" (click)="toggleMenu()">
+		<i class="fa fa-bars"></i> Start
+	</div>
+</div>

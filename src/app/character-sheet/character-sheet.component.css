@@ -1,0 +1,12 @@
+div.slot{
+	height: 3vw;
+	width: 3vw;
+	border: 2px solid black;
+	border-radius: 2px;
+	margin: 3px;
+}
+img{
+	height: 3vw;
+	width: 3vw;
+	margin: 0px;
+}

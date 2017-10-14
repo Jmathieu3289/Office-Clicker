@@ -1,0 +1,112 @@
+/* -- Window -- */
+
+div.window {
+	float: left;
+	position: absolute;
+	min-height: 200px;
+	min-width: 200px;
+	top: 25%;
+	left: 25%;
+	display: flex;
+	flex-direction: column;
+}
+
+div.windowed {
+	max-width: 800px;
+}
+
+div.fullscreen {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: calc(100% - 2.5em);
+}
+
+div.window-title {
+	background-color: #808080;
+	padding: 3px 4px 3px 4px;
+	align-self: flex-start;
+	width: 100%;
+}
+
+div.window-title h1 {
+    font-weight: bold;
+    color: #bcbcbc;
+    font-size: 13px;
+    margin: 0;
+}
+
+div.window-title button {
+	border: 2px solid;
+	border-bottom-color: #444;
+	border-right-color: #444;
+	border-left-color: #a6a6a6;
+	border-top-color: #a6a6a6;
+	background-color: #bfbfbf;
+	position: absolute;
+	font-size: 9px;
+	line-height: 0;
+	margin-top: 3px;
+	margin-right: 3px;
+	padding: 1px;
+	height: 15px;
+	width: 15px;
+	top: 2px;
+	cursor: pointer;
+}
+
+button.minimize {
+	right: 34px;
+}
+button.expand {
+	right: 18px;
+}
+button.times {
+	right: 2px;
+}
+
+div.window-toolbar {
+	padding: 2px 0;
+	margin: 0;
+}
+
+div.window-toolbar-command {
+	padding: 0 5px;
+	cursor: pointer;
+}
+
+div.window-file-area {
+	height: 100%;
+	width: 100%;
+}
+
+div.window-file-icon {
+	width: 100px;
+	height: auto;
+	min-height: 70px;
+	margin: 1px;
+	cursor: pointer;
+}
+
+div.window-file-icon:hover{
+	border: 1px dotted black;
+}
+
+div.window-file-icon-image {
+	text-align: center;
+	font-size: 26px;
+}
+
+div.window-file-icon-text {
+	text-align: center;
+	color: black;
+}
+
+div.window-status-bar {
+	border: 1px solid;
+  	border-color: #888 #dadada #dadada #888;
+  	padding: 0px 5px;
+  	font-size: 11px;	
+  	align-self: flex-end;
+  	width: 100%;
+}

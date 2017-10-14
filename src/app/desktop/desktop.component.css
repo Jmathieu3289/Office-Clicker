@@ -1,0 +1,25 @@
+div.desktop {
+	height: 100%;
+	padding: 20px;
+	color: white;
+}
+
+div.desktop-icon {
+	width: 70px;
+	min-height: 70px;
+	margin: 1px;
+	cursor: pointer;
+}
+
+div.desktop-icon:hover{
+	border: 1px dotted white;
+}
+
+div.icon-image {
+	text-align: center;
+	font-size: 26px;
+}
+
+div.icon-text {
+	text-align: center;
+}
