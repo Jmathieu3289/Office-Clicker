@@ -1,24 +1,26 @@
-<div class="menu container-outer">
-	<div class="menu-title">
+<div class="window container-outer" *ngIf="visible" [ngClass]="{'window container-outer' : true, 'windowed' : state=='windowed', 'fullscreen' : state=='fullscreen'}" [style.left.px]="left" [style.top.px]="top">
+	<div class="window-title">
 		<div class="pull-right">
-			<button class="minimize"><span class="fa fa-minus"></span></button>
-	      	<button class="expand"><span class="fa fa-square-o"></span></button>
-	      	<button class="times"><span class="fa fa-times"></span></button>
+			<button class="minimize" (click)="minimize()"><span class="fa fa-minus"></span></button>
+	      	<button class="expand" (click)="toggleSize()"><span class="fa fa-square-o"></span></button>
+	      	<button class="times" (click)="close()"><span class="fa fa-times"></span></button>
       	</div>
       	<h1>Inventory</h1>
 	</div>
-	<div class="menu-toolbar">
+	<div class="window-toolbar">
 		<div class="d-flex">
-			<div class="menu-toolbar-command">
+			<div class="window-toolbar-command">
 				<u>S</u>ort
 			</div>
 		</div>
 	</div>
-	<div class="d-inline-flex flex-wrap container-inner inventory-area" droppable (onDrop)="onItemDrop($event)">
-	  <div *ngFor="let inv of inventory" class="p-1 inventory-item" draggable [dragData]="inv" [dragScope]="inv.type">
+	<div class="d-flex flex-wrap align-items-start container-inner window-file-area" droppable (onDrop)="onItemDrop($event)">
+	  <div *ngFor="let inv of inventory" class="window-file-icon" draggable [dragData]="inv" [dragScope]="inv.type">
+	  	<div class="window-file-icon-image"><i [ngClass]="inv.rarity" class="fa fa-folder"></i></div>
+	  	<div class="window-file-icon-text">{{inv.name}}</div>
 	  </div>
 	</div>
-	<div class="menu-status-bar">
+	<div class="window-status-bar">
 		6 item(s) total
 	</div>
 </div>
