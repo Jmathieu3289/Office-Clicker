@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { WindowComponent } from '../window/window.component';
 
 @Component({
   selector: 'app-desktop',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./desktop.component.css']
 })
 export class DesktopComponent implements OnInit {
+
+  @Input() Windows: Array<WindowComponent>;
 
   constructor() { }
 

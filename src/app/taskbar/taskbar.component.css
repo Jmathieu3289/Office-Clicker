@@ -9,7 +9,7 @@ div.taskbar {
 div.start-menu {
 	margin-bottom: 2.2em;
 	margin-left: 2px;
-	max-width: 200px;
+	max-width: 250px;
 	z-index: 2;
 }
 
@@ -51,4 +51,17 @@ div.start-menu-hr {
 	border: 1px solid;
 	border-bottom-color: #dbdbdb;
 	border-top-color: #535353;
+}
+
+div.taskbar-status-bar {
+	border: 1px solid;
+  	border-color: #888 #dadada #dadada #888;
+  	padding: 0px 5px;
+  	font-size: 11px;	
+}
+
+div.align-text-middle {
+	line-height: 13px;
+	vertical-align: middle;
+	margin-top: 5px;
 }

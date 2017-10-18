@@ -4,15 +4,26 @@
 			<i class="fa fa-folder"></i>	
 		</div>
 		<div class="icon-text">
-			My Loot
+			My Files
 		</div>
 	</div>
 	<div class="desktop-icon">
 		<div class="icon-image">
-			<i class="fa fa-user"></i>	
+			<i class="fa fa-desktop"></i>	
 		</div>
 		<div class="icon-text">
-			Justin's Stats
+			Hardware Manager
 		</div>
 	</div>
+	<div class="desktop-icon">
+		<div class="icon-image">
+			<i class="fa fa-globe"></i>	
+		</div>
+		<div class="icon-text">
+			Internet Browser
+		</div>
+	</div>
+	<ng-container *ngFor="let window of windows">
+		<app-window></app-window>
+	</ng-container>
 </div>

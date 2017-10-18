@@ -1,0 +1,9 @@
+div.taskbar-item {
+	margin-left: 4px;
+	min-width: 150px;
+	cursor: pointer;
+}
+
+div.active {
+	background-color: #dcdcdc;
+}

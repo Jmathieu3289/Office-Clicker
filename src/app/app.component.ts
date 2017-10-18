@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { InventoryItem } from './inventory/inventory-item';
+
+import { WindowComponent } from './window/window.component';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,10 @@ import { InventoryItem } from './inventory/inventory-item';
 export class AppComponent {
 
   title = 'app';
-
-  inventory: Array<InventoryItem> = Array();
-  slots: Array<InventoryItem> = Array();
+  windows: Array<string>;
 
   constructor() {
-    for (let i = 0; i < 3; i++) {
-      this.inventory[i * 3 + 0] = new InventoryItem('Head Item', 'head');
-      this.inventory[i * 3 + 1] = new InventoryItem('Body Item', 'body');
-      this.inventory[i * 3 + 2] = new InventoryItem('Weapon', 'weapon');
-    }
-
+    this.windows = ['test', 'test'];
   }
 
 }

@@ -1,30 +1,30 @@
 import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/core';
 
 
-import { InventoryItem } from './inventory-item';
-
 @Component({
-  selector: 'app-inventory',
-  templateUrl: './inventory.component.html',
-  styleUrls: ['./inventory.component.css'],
+  selector: 'app-window',
+  templateUrl: './window.component.html',
+  styleUrls: ['./window.component.css'],
   providers: []
 })
-export class InventoryComponent implements OnInit {
+export class WindowComponent implements OnInit {
 
   size = 144;
-  state = 'windowed';
+  state = 'fullscreen';
   visible = true;
   left = 0;
   top = 0;
+  title = 'Untitled';
+  status = 'No status';
 
   private el: HTMLElement;
 
   private mouseDown = false;
   private xOffset = 0;
   private yOffset = 0;
-
-  @Input() inventory: Array<InventoryItem>;
-  @Input() slots: Array<InventoryItem>;
+  private zIndex = 0;
+  private windowedLeft = 0;
+  private windowedTop = 0;
 
   @HostListener('window:mouseup')
   onWindowMouseup() {
@@ -61,16 +61,12 @@ export class InventoryComponent implements OnInit {
   ngOnInit() {
   }
 
-  onItemDrop(e: any) {
-    if (e.dragData.src != null) {
-      this.slots[e.dragData.src] = null;
-      e.dragData.src = null;
-      this.inventory.push(e.dragData);
-    }
-  }
-
   minimize() {
     this.visible = false;
+  }
+
+  show() {
+    this.visible = true;
   }
 
   close() {
@@ -80,8 +76,14 @@ export class InventoryComponent implements OnInit {
   toggleSize() {
     if (this.state === 'windowed') {
       this.state = 'fullscreen';
+      this.windowedLeft = this.left;
+      this.windowedTop = this.top;
+      this.left = 0;
+      this.top = 0;
     }else {
       this.state = 'windowed';
+      this.left = this.windowedLeft;
+      this.top = this.windowedTop;
     }
   }
 

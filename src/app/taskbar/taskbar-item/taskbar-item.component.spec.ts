@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CharacterSheetComponent } from './character-sheet.component';
+import { TaskbarItemComponent } from './taskbar-item.component';
 
-describe('CharacterSheetComponent', () => {
-  let component: CharacterSheetComponent;
-  let fixture: ComponentFixture<CharacterSheetComponent>;
+describe('TaskbarItemComponent', () => {
+  let component: TaskbarItemComponent;
+  let fixture: ComponentFixture<TaskbarItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CharacterSheetComponent ]
+      declarations: [ TaskbarItemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CharacterSheetComponent);
+    fixture = TestBed.createComponent(TaskbarItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build -sm -ec -bh https://jmathieu3289.github.io/Office-Clicker/ & ngh"
+    "deploy": "ng build -sm -ec -bh https://jmathieu3289.github.io/Office-Clicker/ & ngh --output-path=docs"
   },
   "private": true,
   "dependencies": {
