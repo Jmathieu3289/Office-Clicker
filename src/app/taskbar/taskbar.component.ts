@@ -1,19 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 import { WindowComponent } from '../window/window.component';
+import { TaskbarItemComponent } from './taskbar-item/taskbar-item.component';
 
 @Component({
   selector: 'app-taskbar',
   templateUrl: './taskbar.component.html',
-  styleUrls: ['./taskbar.component.css']
+  styleUrls: ['./taskbar.component.css'],
+  viewProviders: [WindowComponent]
 })
 export class TaskbarComponent implements OnInit {
 
   startMenuActive = false;
   time = Observable.interval(1000).map(x => new Date()).share();
 
-  @Input() Windows: Array<WindowComponent>;
+  @Input() windows: Array<WindowComponent>;
+
+  @Output() windowChanged: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
 
   constructor() { }
 
@@ -27,6 +31,20 @@ export class TaskbarComponent implements OnInit {
   closeMenu() {
     if (this.startMenuActive) {
       this.startMenuActive = false;
+    }
+  }
+
+  onHideWindow(window: WindowComponent) {
+    this.windowChanged.emit(window);
+  }
+
+  onShowWindow(window: WindowComponent) {
+  }
+
+  @HostListener('window:mousedown', ['$event'])
+  onMousedown(event) {
+    if (event.target.id !== 'taskbar-button') {
+      this.closeMenu();
     }
   }
 

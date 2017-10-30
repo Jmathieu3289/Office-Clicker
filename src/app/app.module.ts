@@ -7,6 +7,7 @@ import { WindowComponent } from './window/window.component';
 import { TaskbarComponent } from './taskbar/taskbar.component';
 import { DesktopComponent } from './desktop/desktop.component';
 import { TaskbarItemComponent } from './taskbar/taskbar-item/taskbar-item.component';
+import { WindowContentComponent } from './window/window-content/window-content.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TaskbarItemComponent } from './taskbar/taskbar-item/taskbar-item.compon
     WindowComponent,
     TaskbarComponent,
     DesktopComponent,
-    TaskbarItemComponent
+    TaskbarItemComponent,
+    WindowContentComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +24,7 @@ import { TaskbarItemComponent } from './taskbar/taskbar-item/taskbar-item.compon
   ],
   exports: [],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [WindowComponent]
 })
 export class AppModule { }

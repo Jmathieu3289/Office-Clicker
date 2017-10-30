@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, HostListener, ElementRef, EventEmitter, Output } from '@angular/core';
+
+import { WindowContentComponent } from './window-content/window-content.component';
 
 
 @Component({
@@ -9,13 +11,14 @@ import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/cor
 })
 export class WindowComponent implements OnInit {
 
-  size = 144;
-  state = 'fullscreen';
-  visible = true;
-  left = 0;
-  top = 0;
-  title = 'Untitled';
-  status = 'No status';
+  public size = 144;
+  public state = 'fullscreen';
+  public visible = true;
+  public left = 0;
+  public top = 0;
+  public title = 'Untitled';
+  public status = 'No status';
+  public active = true;
 
   private el: HTMLElement;
 
@@ -26,9 +29,13 @@ export class WindowComponent implements OnInit {
   private windowedLeft = 0;
   private windowedTop = 0;
 
+  @Input() component: typeof WindowContentComponent;
+  @Input() window: WindowComponent;
+
+  @Output() onMinimize = new EventEmitter<WindowComponent>();
+
   @HostListener('window:mouseup')
   onWindowMouseup() {
-      console.log('mouse up');
       this.mouseDown = false;
   }
 
@@ -63,9 +70,12 @@ export class WindowComponent implements OnInit {
 
   minimize() {
     this.visible = false;
+    this.active = false;
+    this.onMinimize.emit(this);
   }
 
   show() {
+    console.log(this);
     this.visible = true;
   }
 

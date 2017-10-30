@@ -29,11 +29,19 @@ div.window-title {
 	width: 100%;
 }
 
+div.window-title.active {
+	background-color: #000080;
+}
+
 div.window-title h1 {
     font-weight: bold;
     color: #bcbcbc;
     font-size: 13px;
     margin: 0;
+}
+
+div.window-title.active h1 {
+	color: white;
 }
 
 div.window-title button {

@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { WindowComponent } from '../window/window.component';
+import { WindowContentComponent } from '../window/window-content/window-content.component';
 
 @Component({
   selector: 'app-desktop',
@@ -9,11 +10,14 @@ import { WindowComponent } from '../window/window.component';
 })
 export class DesktopComponent implements OnInit {
 
-  @Input() Windows: Array<WindowComponent>;
+  @Input() windows: Array<WindowComponent>;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  windowMinimized(window: WindowComponent) {
   }
 
 }
