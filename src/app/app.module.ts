@@ -8,6 +8,7 @@ import { TaskbarComponent } from './taskbar/taskbar.component';
 import { DesktopComponent } from './desktop/desktop.component';
 import { TaskbarItemComponent } from './taskbar/taskbar-item/taskbar-item.component';
 import { WindowContentComponent } from './window/window-content/window-content.component';
+import { DynamicComponent } from './dynamic/dynamic.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { WindowContentComponent } from './window/window-content/window-content.c
     TaskbarComponent,
     DesktopComponent,
     TaskbarItemComponent,
-    WindowContentComponent
+    WindowContentComponent,
+    DynamicComponent
   ],
   imports: [
     BrowserModule,

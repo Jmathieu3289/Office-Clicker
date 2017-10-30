@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, Type } from '@angular/core';
 
 import { WindowComponent } from './window/window.component';
 import { WindowContentComponent } from './window/window-content/window-content.component';
@@ -14,19 +14,17 @@ export class AppComponent {
 
   title = 'app';
 
-  windows: Array<WindowComponent> = [];
+  windows: Array<Type<WindowComponent>> = [];
 
   @ViewChild(DesktopComponent) desktop: DesktopComponent;
   @ViewChild(TaskbarComponent) taskbar: TaskbarComponent;
 
   constructor(_elementRef: ElementRef ) {
-    this.windows = [new WindowComponent(_elementRef)];
+    this.windows = [WindowComponent];
   }
 
-  onWindowMinimized(window: WindowComponent) {
-  }
-
-  onWindowChanged(window: WindowComponent) {
+  onInstanceCreated(window: WindowComponent) {
+    this.taskbar.addWindow(window);
   }
 
 }

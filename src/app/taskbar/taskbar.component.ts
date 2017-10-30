@@ -15,7 +15,7 @@ export class TaskbarComponent implements OnInit {
   startMenuActive = false;
   time = Observable.interval(1000).map(x => new Date()).share();
 
-  @Input() windows: Array<WindowComponent>;
+  windows: Array<WindowComponent> = [];
 
   @Output() windowChanged: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
 
@@ -32,6 +32,10 @@ export class TaskbarComponent implements OnInit {
     if (this.startMenuActive) {
       this.startMenuActive = false;
     }
+  }
+
+  addWindow(window: WindowComponent) {
+    this.windows.push(window);
   }
 
   onHideWindow(window: WindowComponent) {

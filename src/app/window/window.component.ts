@@ -30,7 +30,6 @@ export class WindowComponent implements OnInit {
   private windowedTop = 0;
 
   @Input() component: typeof WindowContentComponent;
-  @Input() window: WindowComponent;
 
   @Output() onMinimize = new EventEmitter<WindowComponent>();
 

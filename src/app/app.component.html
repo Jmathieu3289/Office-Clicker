@@ -1,4 +1,4 @@
 <div class="container-fluid" class="noselect">
-  <app-desktop #desktop [windows]="windows" (onMinimize)="onWindowMinimized($event)"></app-desktop>
-  <app-taskbar #taskbar [windows]="windows" (windowChanged)="onWindowChanged($event)"></app-taskbar>
+  <app-desktop [windows]="windows" (instanceCreated)="onInstanceCreated($event)"></app-desktop>
+  <app-taskbar></app-taskbar>
 </div>
