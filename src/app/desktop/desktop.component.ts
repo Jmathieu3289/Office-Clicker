@@ -14,6 +14,7 @@ export class DesktopComponent implements OnInit {
   @Input() windows: Array<WindowComponent>;
 
   @Output() instanceCreated: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
+  @Output() onFocus: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
 
   constructor() { }
 

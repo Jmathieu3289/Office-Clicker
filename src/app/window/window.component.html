@@ -1,5 +1,5 @@
 <div class="window container-outer" [hidden]="!visible" 
-[ngClass]="{'window container-outer': true, 'windowed': state=='windowed', 'fullscreen': state=='fullscreen'}" [style.left.px]="left" [style.top.px]="top">
+[ngClass]="{'window container-outer': true, 'windowed': state=='windowed', 'fullscreen': state=='fullscreen'}" [style.left.px]="left" [style.top.px]="top" (click)="focus()">
 	<div class="window-title" [class.active]="active">
 		<div class="pull-right">
 			<button class="minimize" (click)="minimize()"><span class="fa fa-minus"></span></button>

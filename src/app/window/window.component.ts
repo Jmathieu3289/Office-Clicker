@@ -32,6 +32,7 @@ export class WindowComponent implements OnInit {
   @Input() component: typeof WindowContentComponent;
 
   @Output() onMinimize = new EventEmitter<WindowComponent>();
+  @Output() onFocus = new EventEmitter<WindowComponent>();
 
   @HostListener('window:mouseup')
   onWindowMouseup() {
@@ -67,18 +68,27 @@ export class WindowComponent implements OnInit {
   ngOnInit() {
   }
 
-  minimize() {
+  public minimize() {
     this.visible = false;
     this.active = false;
     this.onMinimize.emit(this);
   }
 
-  show() {
-    console.log(this);
+  public unfocus() {
+    this.zIndex = 10000;
+    this.active = false;
+  }
+
+  public focus() {
+    this.zIndex = 0;
+    this.active = true;
+  }
+
+  public show() {
     this.visible = true;
   }
 
-  close() {
+  public close() {
     this.visible = false;
   }
 

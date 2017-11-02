@@ -35,6 +35,9 @@ export class TaskbarComponent implements OnInit {
   }
 
   addWindow(window: WindowComponent) {
+    this.windows.forEach(w => {
+      w.unfocus();
+    });
     this.windows.push(window);
   }
 
@@ -43,6 +46,14 @@ export class TaskbarComponent implements OnInit {
   }
 
   onShowWindow(window: WindowComponent) {
+  }
+
+  onWindowFocused(window: WindowComponent) {
+    this.windows.forEach(w => {
+      if(w != window){
+        w.unfocus();
+      }
+    });
   }
 
   @HostListener('window:mousedown', ['$event'])

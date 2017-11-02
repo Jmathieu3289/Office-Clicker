@@ -17,6 +17,7 @@ export class DynamicComponent implements OnInit, OnChanges, AfterViewInit {
   private isViewInitialized:boolean = false;
 
   @Output() instanceCreated: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
+  @Output() onFocus: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private compiler: Compiler) {}
 
@@ -48,6 +49,8 @@ export class DynamicComponent implements OnInit, OnChanges, AfterViewInit {
 
   ngAfterViewInit() {
     this.instanceCreated.emit(this.cmpRef.instance as WindowComponent);
+    let w = this.cmpRef.instance as WindowComponent;
+    w.onFocus.subscribe(w => this.onFocus.emit(w));
   }
 
   ngOnDestroy() {
