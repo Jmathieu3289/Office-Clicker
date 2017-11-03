@@ -22,7 +22,7 @@ export class DesktopComponent implements OnInit {
   }
 
   onInstanceCreated(window: WindowComponent) {
-  	this.instanceCreated.emit(window);
+    this.instanceCreated.emit(window);
   }
 
   windowMinimized(window: WindowComponent) {

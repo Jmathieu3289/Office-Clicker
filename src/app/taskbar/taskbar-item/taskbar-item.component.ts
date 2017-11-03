@@ -13,12 +13,9 @@ export class TaskbarItemComponent implements OnInit {
 
   @Input() window: WindowComponent;
 
-  @Output() showWindow: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
-  @Output() hideWindow: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
-  @Output() onFocus: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
+  @Output() windowFocused: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
 
   constructor() {
-    this.window.onFocus.subscribe(w => this.onFocus.emit(w));
   }
 
   ngOnInit() {
@@ -31,8 +28,8 @@ export class TaskbarItemComponent implements OnInit {
     } else {
         this.window.active = true;
         this.window.visible = true;
+        this.windowFocused.emit(this.window);
     }
-    this.hideWindow.emit(this.window);
   }
 
 }

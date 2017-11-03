@@ -20,7 +20,7 @@ export class AppComponent {
   @ViewChild(TaskbarComponent) taskbar: TaskbarComponent;
 
   constructor(_elementRef: ElementRef ) {
-    this.windows = [WindowComponent,WindowComponent];
+    this.windows = [WindowComponent, WindowComponent];
   }
 
   onInstanceCreated(window: WindowComponent) {

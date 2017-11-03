@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, HostListener, ElementRef, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
 
 import { WindowContentComponent } from './window-content/window-content.component';
 
@@ -12,7 +12,7 @@ import { WindowContentComponent } from './window-content/window-content.componen
 export class WindowComponent implements OnInit {
 
   public size = 144;
-  public state = 'fullscreen';
+  public state = 'windowed';
   public visible = true;
   public left = 0;
   public top = 0;
@@ -46,7 +46,7 @@ export class WindowComponent implements OnInit {
 
   @HostListener('window:mousemove', ['$event'])
   onMousemove(event: MouseEvent) {
-      if (this.mouseDown) {
+      if (this.mouseDown && this.state === 'windowed') {
         this.left = event.clientX - this.xOffset;
         this.top = event.clientY - this.yOffset;
       }
@@ -61,7 +61,7 @@ export class WindowComponent implements OnInit {
       }
   }
 
-  constructor(elementRef: ElementRef) {
+  constructor(elementRef: ElementRef, private ref: ChangeDetectorRef) {
     this.el = elementRef.nativeElement;
   }
 
@@ -77,6 +77,7 @@ export class WindowComponent implements OnInit {
   public unfocus() {
     this.zIndex = 10000;
     this.active = false;
+    this.ref.detectChanges();
   }
 
   public focus() {

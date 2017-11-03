@@ -41,16 +41,9 @@ export class TaskbarComponent implements OnInit {
     this.windows.push(window);
   }
 
-  onHideWindow(window: WindowComponent) {
-    this.windowChanged.emit(window);
-  }
-
-  onShowWindow(window: WindowComponent) {
-  }
-
   onWindowFocused(window: WindowComponent) {
     this.windows.forEach(w => {
-      if(w != window){
+      if (w !== window) {
         w.unfocus();
       }
     });
