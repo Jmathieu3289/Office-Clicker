@@ -75,14 +75,15 @@ export class WindowComponent implements OnInit {
   }
 
   public unfocus() {
-    this.zIndex = 10000;
+    this.zIndex = 0;
     this.active = false;
     this.ref.detectChanges();
   }
 
   public focus() {
-    this.zIndex = 0;
+    this.zIndex = 1;
     this.active = true;
+    this.onFocus.emit(this);
   }
 
   public show() {

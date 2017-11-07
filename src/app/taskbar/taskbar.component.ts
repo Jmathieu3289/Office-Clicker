@@ -49,6 +49,14 @@ export class TaskbarComponent implements OnInit {
     });
   }
 
+  onWindowMinimized(window: WindowComponent) {
+    this.windows.forEach(w => {
+      if (w !== window) {
+
+      }
+    });
+  }
+
   @HostListener('window:mousedown', ['$event'])
   onMousedown(event) {
     if (event.target.id !== 'taskbar-button') {

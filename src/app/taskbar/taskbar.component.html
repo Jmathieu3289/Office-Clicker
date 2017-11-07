@@ -29,7 +29,8 @@
 	<ng-container *ngFor="let window of windows">
 		<app-taskbar-item 
 		[window]="window"
-		(windowFocused)="onWindowFocused($event)">
+		(windowFocused)="onWindowFocused($event)"
+		(onMinimize)="onWindowMinimized($event)">
 		</app-taskbar-item>
 	</ng-container>
 	<div class="taskbar-status-bar ml-auto mr-2">

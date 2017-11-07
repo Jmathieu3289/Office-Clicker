@@ -14,11 +14,14 @@ export class TaskbarItemComponent implements OnInit {
   @Input() window: WindowComponent;
 
   @Output() windowFocused: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
+  @Output() windowMinimized: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
 
   constructor() {
   }
 
   ngOnInit() {
+      this.window.onMinimize.subscribe(() => this.windowMinimized.emit(this.window));
+      this.window.onFocus.subscribe(() => this.windowFocused.emit(this.window));
   }
 
   toggleStatus() {
