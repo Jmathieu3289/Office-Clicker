@@ -25,7 +25,7 @@ export class WindowComponent implements OnInit {
   private mouseDown = false;
   private xOffset = 0;
   private yOffset = 0;
-  private zIndex = 0;
+  public zIndex = 0;
   private windowedLeft = 0;
   private windowedTop = 0;
 
