@@ -41,6 +41,13 @@ export class TaskbarComponent implements OnInit {
     this.windows.push(window);
   }
 
+  removeWindow(window: WindowComponent) {
+    const index: number = this.windows.indexOf(window);
+    if (index > -1) {
+      this.windows.splice(index, 1);
+    }
+  }
+
   onWindowFocused(window: WindowComponent) {
     this.windows.forEach(w => {
       if (w !== window) {

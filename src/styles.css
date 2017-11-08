@@ -38,7 +38,8 @@ div.container-inner {
     border-left-color: #808080;
     border-top-color: #808080;
     background-color: #fff;
-    padding: 10px;
+	padding: 10px;
+	height: 100%;
 }
 
 .noselect {

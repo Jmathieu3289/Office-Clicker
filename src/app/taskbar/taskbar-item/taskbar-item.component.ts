@@ -20,7 +20,6 @@ export class TaskbarItemComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.window.onMinimize.subscribe(() => this.windowMinimized.emit(this.window));
       this.window.onFocus.subscribe(() => this.windowFocused.emit(this.window));
   }
 

@@ -24,7 +24,6 @@
 		</div>
 	</div>
 	<ng-container *ngFor="let window of windows">
-		<app-dynamic [type]="window" 
-		(instanceCreated)="onInstanceCreated($event)"></app-dynamic>
+		<app-dynamic [type]="window"></app-dynamic>
 	</ng-container>
 </div>

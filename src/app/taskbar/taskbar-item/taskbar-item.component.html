@@ -1,3 +1,3 @@
 <div class="container-outer taskbar-item" [class.active]="window.active" (click)="toggleStatus()">
-	{{window.title}}
+	{{window.content ? window.content.title : window.title}}
 </div>

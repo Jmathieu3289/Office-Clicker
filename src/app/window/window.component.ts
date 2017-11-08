@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, HostListener, ElementRef, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, HostListener, ElementRef, EventEmitter, Output, ChangeDetectorRef, ViewChild } from '@angular/core';
 
 import { WindowContentComponent } from './window-content/window-content.component';
+import { WindowType } from './window-type.enum';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class WindowComponent implements OnInit {
   public title = 'Untitled';
   public status = 'No status';
   public active = true;
+  public type: WindowType;
 
   private el: HTMLElement;
 
@@ -29,10 +31,10 @@ export class WindowComponent implements OnInit {
   private windowedLeft = 0;
   private windowedTop = 0;
 
-  @Input() component: typeof WindowContentComponent;
-
-  @Output() onMinimize = new EventEmitter<WindowComponent>();
+  @Output() onClose = new EventEmitter<WindowComponent>();
   @Output() onFocus = new EventEmitter<WindowComponent>();
+
+  @ViewChild(WindowContentComponent) content: WindowContentComponent;
 
   @HostListener('window:mouseup')
   onWindowMouseup() {
@@ -71,7 +73,6 @@ export class WindowComponent implements OnInit {
   public minimize() {
     this.visible = false;
     this.active = false;
-    this.onMinimize.emit(this);
   }
 
   public unfocus() {
@@ -92,6 +93,7 @@ export class WindowComponent implements OnInit {
 
   public close() {
     this.visible = false;
+    this.onClose.emit(this);
   }
 
   toggleSize() {

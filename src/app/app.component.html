@@ -1,4 +1,5 @@
 <div class="container-fluid" class="noselect">
-  <app-desktop [windows]="windows" (instanceCreated)="onInstanceCreated($event)"></app-desktop>
+  <app-desktop 
+  (windowClosed)="onWindowClosed($event)"></app-desktop>
   <app-taskbar></app-taskbar>
 </div>

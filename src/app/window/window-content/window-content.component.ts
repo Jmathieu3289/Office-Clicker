@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WindowContentComponent implements OnInit {
 
+  public title = 'Default';
+  public status = 'No Status';
 
   constructor() { }
+
   ngOnInit() {
+  }
+
+  public getTitle(): string {
+    return this.title;
   }
 
 }

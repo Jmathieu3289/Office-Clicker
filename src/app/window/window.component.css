@@ -4,7 +4,9 @@ div.window {
 	float: left;
 	position: absolute;
 	min-height: 200px;
+	height: 200px;
 	min-width: 200px;
+	width: 200px;
 	top: 25%;
 	left: 25%;
 	display: flex;
@@ -27,6 +29,10 @@ div.window-title {
 	padding: 3px 4px 3px 4px;
 	align-self: flex-start;
 	width: 100%;
+}
+
+div.window-content {
+	height: calc(100% - 3.45em);
 }
 
 div.window-title.active {
@@ -115,6 +121,6 @@ div.window-status-bar {
   	border-color: #888 #dadada #dadada #888;
   	padding: 0px 5px;
   	font-size: 11px;	
-  	align-self: flex-end;
+	margin-top: auto;
   	width: 100%;
 }

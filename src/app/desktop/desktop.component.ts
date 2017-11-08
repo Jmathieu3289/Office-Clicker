@@ -1,6 +1,6 @@
+import { WindowComponent } from './../window/window.component';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { WindowComponent } from '../window/window.component';
 import { WindowContentComponent } from '../window/window-content/window-content.component';
 import { DynamicComponent } from '../dynamic/dynamic.component';
 
@@ -11,21 +11,18 @@ import { DynamicComponent } from '../dynamic/dynamic.component';
 })
 export class DesktopComponent implements OnInit {
 
-  @Input() windows: Array<WindowComponent>;
+  public windows: Array<WindowComponent>;
 
   @Output() instanceCreated: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
-  @Output() onFocus: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
+  @Output() windowClosed: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onInstanceCreated(window: WindowComponent) {
-    this.instanceCreated.emit(window);
-  }
-
-  windowMinimized(window: WindowComponent) {
+  onWindowClosed(window: WindowComponent) {
+    this.windowClosed.emit(window);
   }
 
 }
