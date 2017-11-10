@@ -1,0 +1,26 @@
+div.window-file-icon {
+	width: 100px;
+	height: auto;
+	min-height: 70px;
+	margin: 1px;
+	cursor: pointer;
+}
+
+div.window-file-icon:hover{
+	border: 1px dotted black;
+}
+
+div.window-file-icon-image {
+	text-align: center;
+	font-size: 26px;
+}
+
+div.window-file-area {
+	height: 100%;
+	width: 100%;
+}
+
+div.window-file-icon-text {
+	text-align: center;
+	color: black;
+}

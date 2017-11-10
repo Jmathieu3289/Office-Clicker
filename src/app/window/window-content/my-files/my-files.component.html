@@ -1,0 +1,7 @@
+<div class="d-flex flex-wrap align-items-start container-inner window-file-area" droppable>
+  <div *ngFor="let inv of inventory" class="window-file-icon" draggable [dragData]="inv" [dragScope]="inv.type">
+    <div class="window-file-icon-image"><i class="fa fa-folder"></i></div>
+    <div class="window-file-icon-text">Test</div>
+  </div>
+</div>
+	

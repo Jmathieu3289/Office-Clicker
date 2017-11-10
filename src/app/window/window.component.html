@@ -17,16 +17,10 @@
 			<div class="d-flex">
 			</div>
 		</div>
-	<div class="window-content" *ngIf="true">
-		<app-window-content></app-window-content>
+	<div class="window-content">
+		<ng-container *ngIf="type==windowType.MY_FILES">
+			<app-my-files #content></app-my-files>
+		</ng-container>
 	</div>
-	<!--
-	<div class="d-flex flex-wrap align-items-start container-inner window-file-area" droppable (onDrop)="onItemDrop($event)">
-	  <div *ngFor="let inv of inventory" class="window-file-icon" draggable [dragData]="inv" [dragScope]="inv.type">
-	  	<div class="window-file-icon-image"><i [ngClass]="inv.rarity" class="fa fa-folder"></i></div>
-	  	<div class="window-file-icon-text">{{inv.name}}</div>
-	  </div>
-	</div>
-	-->
 	<div class="window-status-bar">{{content ? content.status : status}}</div>
 </div>

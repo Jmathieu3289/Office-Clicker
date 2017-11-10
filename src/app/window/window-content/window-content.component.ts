@@ -14,9 +14,4 @@ export class WindowContentComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  public getTitle(): string {
-    return this.title;
-  }
-
 }

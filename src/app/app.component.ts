@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.createWindow(WindowType.HARDWARE_MANAGER);
+    this.createWindow(WindowType.MY_FILES);
   }
 
   createWindow(type: WindowType) {

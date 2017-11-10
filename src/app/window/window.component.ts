@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, HostListener, ElementRef, EventEmitter, Output, ChangeDetectorRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, HostListener, 
+  ElementRef, EventEmitter, Output, ChangeDetectorRef, ViewChild, AfterViewInit
+  } from '@angular/core';
 
 import { WindowContentComponent } from './window-content/window-content.component';
 import { WindowType } from './window-type.enum';
@@ -10,7 +12,7 @@ import { WindowType } from './window-type.enum';
   styleUrls: ['./window.component.css'],
   providers: []
 })
-export class WindowComponent implements OnInit {
+export class WindowComponent implements OnInit, AfterViewInit {
 
   public size = 144;
   public state = 'windowed';
@@ -21,6 +23,7 @@ export class WindowComponent implements OnInit {
   public status = 'No status';
   public active = true;
   public type: WindowType;
+  public windowType: typeof WindowType = WindowType;
 
   private el: HTMLElement;
 
@@ -28,16 +31,21 @@ export class WindowComponent implements OnInit {
   private xOffset = 0;
   private yOffset = 0;
   public zIndex = 0;
-  private windowedLeft = 0;
-  private windowedTop = 0;
+  private windowedLeft = Math.random() * 100;
+  private windowedTop = Math.random() * 100;
 
   @Output() onClose = new EventEmitter<WindowComponent>();
   @Output() onFocus = new EventEmitter<WindowComponent>();
 
-  @ViewChild(WindowContentComponent) content: WindowContentComponent;
+  @ViewChild('content') content: WindowContentComponent;
 
   @HostListener('window:mouseup')
   onWindowMouseup() {
+      this.mouseDown = false;
+  }
+
+  @HostListener('window:touchup')
+  onWindowTouchup() {
       this.mouseDown = false;
   }
 
@@ -46,8 +54,21 @@ export class WindowComponent implements OnInit {
       this.mouseDown = false;
   }
 
+  @HostListener('touchup')
+  onTouchup() {
+      this.mouseDown = false;
+  }
+
   @HostListener('window:mousemove', ['$event'])
   onMousemove(event: MouseEvent) {
+      if (this.mouseDown && this.state === 'windowed') {
+        this.left = event.clientX - this.xOffset;
+        this.top = event.clientY - this.yOffset;
+      }
+  }
+
+  @HostListener('window:touchmove', ['$event'])
+  onTouchmove(event: MouseEvent) {
       if (this.mouseDown && this.state === 'windowed') {
         this.left = event.clientX - this.xOffset;
         this.top = event.clientY - this.yOffset;
@@ -63,22 +84,35 @@ export class WindowComponent implements OnInit {
       }
   }
 
+  @HostListener('touchdown', ['$event'])
+  onTouchdown(event) {
+      if (event.target.tagName === 'H1') {
+        this.mouseDown = true;
+        this.xOffset = event.clientX - this.left;
+        this.yOffset = event.clientY - this.top;
+      }
+  }
+
   constructor(elementRef: ElementRef, private ref: ChangeDetectorRef) {
     this.el = elementRef.nativeElement;
   }
 
   ngOnInit() {
+    
+  }
+
+  ngAfterViewInit() {
   }
 
   public minimize() {
     this.visible = false;
-    this.active = false;
+    this.active = false;    
   }
 
   public unfocus() {
     this.zIndex = 0;
     this.active = false;
-    this.ref.detectChanges();
+    this.ref.detectChanges();    
   }
 
   public focus() {
