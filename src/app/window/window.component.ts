@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostListener, 
-  ElementRef, EventEmitter, Output, ChangeDetectorRef, ViewChild, AfterViewInit
+  ElementRef, EventEmitter, Output, ChangeDetectorRef, ViewChild, AfterContentInit
   } from '@angular/core';
 
 import { WindowContentComponent } from './window-content/window-content.component';
@@ -12,13 +12,13 @@ import { WindowType } from './window-type.enum';
   styleUrls: ['./window.component.css'],
   providers: []
 })
-export class WindowComponent implements OnInit, AfterViewInit {
+export class WindowComponent implements OnInit {
 
   public size = 144;
   public state = 'windowed';
   public visible = true;
-  public left = 0;
-  public top = 0;
+  public left = 500;
+  public top = 100;
   public title = 'Untitled';
   public status = 'No status';
   public active = true;
@@ -31,8 +31,8 @@ export class WindowComponent implements OnInit, AfterViewInit {
   private xOffset = 0;
   private yOffset = 0;
   public zIndex = 0;
-  private windowedLeft = Math.random() * 100;
-  private windowedTop = Math.random() * 100;
+  private windowedLeft = 0;
+  private windowedTop = 0;
 
   @Output() onClose = new EventEmitter<WindowComponent>();
   @Output() onFocus = new EventEmitter<WindowComponent>();
@@ -98,10 +98,6 @@ export class WindowComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    
-  }
-
-  ngAfterViewInit() {
   }
 
   public minimize() {

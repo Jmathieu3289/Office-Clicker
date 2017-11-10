@@ -11,16 +11,16 @@
 	      	<button class="expand" (click)="toggleSize()"><span class="fa fa-square-o"></span></button>
 	      	<button class="times" (click)="close()"><span class="fa fa-times"></span></button>
       	</div>
-      	<h1>{{content ? content.title : title}}</h1>
+      	<h1>{{content ? content.title : '_'}}</h1>
 	</div>
 	<div class="window-toolbar">
 			<div class="d-flex">
 			</div>
 		</div>
-	<div class="window-content">
+	<div class="window-content container-inner">
 		<ng-container *ngIf="type==windowType.MY_FILES">
 			<app-my-files #content></app-my-files>
 		</ng-container>
 	</div>
-	<div class="window-status-bar">{{content ? content.status : status}}</div>
+	<div class="window-status-bar">{{content ? content.status : '_'}}</div>
 </div>

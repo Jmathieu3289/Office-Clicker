@@ -1,5 +1,6 @@
 <div class="container-fluid" class="noselect">
   <app-desktop 
-  (windowClosed)="onWindowClosed($event)"></app-desktop>
+  (windowClosed)="onWindowClosed($event)"
+  (openWindow)="onOpenWindow($event)"></app-desktop>
   <app-taskbar></app-taskbar>
 </div>

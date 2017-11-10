@@ -50,4 +50,15 @@ export class AppComponent implements OnInit {
     }
   }
 
+  onOpenWindow(windowType: WindowType): void {
+    for (let i = 0; i < this.windows.length; i++) {
+      if (this.windows[i].type === windowType) {
+        this.windows[i].show();
+        this.windows[i].focus();
+        return;
+      }
+    }
+    this.createWindow(windowType);
+  }
+
 }

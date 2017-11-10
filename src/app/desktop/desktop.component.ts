@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { WindowContentComponent } from '../window/window-content/window-content.component';
 import { DynamicComponent } from '../dynamic/dynamic.component';
+import { WindowType } from '../window/window-type.enum';
 
 @Component({
   selector: 'app-desktop',
@@ -15,14 +16,19 @@ export class DesktopComponent implements OnInit {
 
   @Output() instanceCreated: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
   @Output() windowClosed: EventEmitter<WindowComponent> = new EventEmitter<WindowComponent>();
+  @Output() openWindow: EventEmitter<WindowType> = new EventEmitter<WindowType>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onWindowClosed(window: WindowComponent) {
+  public onWindowClosed(window: WindowComponent) {
     this.windowClosed.emit(window);
+  }
+
+  public openMyFiles(): void {
+    this.openWindow.emit(WindowType.MY_FILES);
   }
 
 }
